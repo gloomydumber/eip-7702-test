@@ -52,7 +52,7 @@ contract BatchCallAndSponsor {
             encodedCalls = abi.encodePacked(encodedCalls, calls[i].to, calls[i].value, calls[i].data);
         }
         bytes32 digest = keccak256(abi.encodePacked(nonce, encodedCalls));
-        
+
         bytes32 ethSignedMessageHash = MessageHashUtils.toEthSignedMessageHash(digest);
 
         // Recover the signer from the provided signature.
